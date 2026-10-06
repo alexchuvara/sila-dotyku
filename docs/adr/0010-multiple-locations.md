@@ -1,6 +1,7 @@
 # ADR-0010: Locations — home studio and Aturi salon
 
-- Status: Accepted (owner decision, 2026-10-07); `booking_mode` default for Aturi pending owner confirmation
+- Status: **Accepted** (owner decisions, 2026-10-07 and 2026-10-08)
+- Confirmed 2026-10-08: Aturi stays `informational`; Aturi's owner has agreed to being named and to the salon address being shown. The Aturi section tells visitors that Wiktoria's appointments **at Aturi are booked on Aturi's own platforms (Booksy or Fresha)** and links there. When Wiktoria leaves Aturi, her availability moves to the home/own-studio location (Mon and Thu pattern, adjustable) and the Aturi section is removed or archived.
 
 ## Context
 Wiktoria works from two places:
