@@ -1,0 +1,41 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# next.js / build output
+.next/
+out/
+build/
+dist/
+next-env.d.ts
+*.tsbuildinfo
+
+# testing
+coverage/
+playwright-report/
+test-results/
+
+# environment and secrets (only .env.example is tracked)
+.env
+.env.*
+!.env.example
+*.pem
+
+# hosting / tooling
+.vercel/
+.claude/settings.local.json
+
+# logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# unreviewed design inputs (stock images need license review first, see docs/01-product-ux.md section 9)
+design/inbox/
