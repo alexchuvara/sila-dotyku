@@ -27,9 +27,26 @@ Reasons for each choice are recorded in [docs/adr](docs/adr/).
 
 ## Getting started
 
-Setup instructions will be added with the project scaffold. Prerequisites: Node.js 20.9+ (24 recommended), pnpm 10.
+Prerequisites: Node.js 20.9+ (24 recommended) and pnpm 10.
 
-Environment variables are documented in [.env.example](.env.example). Never commit real values.
+```bash
+pnpm install
+pnpm dev        # http://localhost:3000
+```
+
+Environment variables are documented in [.env.example](.env.example); copy it to `.env.local`. Never commit real values. No variables are required yet.
+
+### Commands
+
+| Command          | What it does                                                   |
+| ---------------- | -------------------------------------------------------------- |
+| `pnpm dev`       | Start the development server                                   |
+| `pnpm build`     | Production build                                               |
+| `pnpm lint`      | ESLint                                                         |
+| `pnpm typecheck` | Generate Next.js route types, then run the TypeScript compiler |
+| `pnpm format`    | Format all files with Prettier (`format:check` only checks)    |
+
+CI runs `format:check`, `lint`, `typecheck` and `build` on every pull request.
 
 ## Workflow
 
