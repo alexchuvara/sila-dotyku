@@ -7,7 +7,7 @@ Polish first; English, Ukrainian and Russian planned.
 
 ## What it will do
 
-- Present Wiktoria, her massage methods (including her own method, *Energodynamika*), prices and locations.
+- Present Wiktoria, her massage methods (including her own method, _Energodynamika_), prices and locations.
 - Let customers **request** a time slot as a guest (Wiktoria confirms each request); cash payment at first, online payment later.
 - Give Wiktoria a phone-friendly dashboard: new requests, today's schedule, availability, services, customers.
 - Notify her by Telegram and web push.
@@ -19,11 +19,11 @@ Reasons for each choice are recorded in [docs/adr](docs/adr/).
 
 ## Documentation
 
-| Document | Contents |
-|---|---|
-| [docs/00-discovery.md](docs/00-discovery.md) | Requirements, architecture, data model, security, roadmap |
+| Document                                       | Contents                                                               |
+| ---------------------------------------------- | ---------------------------------------------------------------------- |
+| [docs/00-discovery.md](docs/00-discovery.md)   | Requirements, architecture, data model, security, roadmap              |
 | [docs/01-product-ux.md](docs/01-product-ux.md) | Owner decisions, services, availability, booking lifecycle, wireframes |
-| [docs/adr/](docs/adr/) | Architecture decision records |
+| [docs/adr/](docs/adr/)                         | Architecture decision records                                          |
 
 ## Getting started
 
