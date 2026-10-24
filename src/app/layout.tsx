@@ -1,5 +1,23 @@
 import type { Metadata } from "next";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
+
+// next/font reads these options at build time, so they must be literals (no shared variables).
+// latin-ext covers Polish letters; cyrillic is ready for Ukrainian and Russian.
+
+const display = Cormorant_Garamond({
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  weight: ["500", "600"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+const sans = Manrope({
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  variable: "--font-manrope",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Siła dotyku: masaż, który zmienia samopoczucie",
@@ -10,8 +28,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pl" className="h-full antialiased">
-      <body className="flex min-h-full flex-col">{children}</body>
+    // suppressHydrationWarning: the inline script sets data-theme before React hydrates (ADR-0011).
+    <html
+      lang="pl"
+      className={`${display.variable} ${sans.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="flex min-h-full flex-col font-sans">{children}</body>
     </html>
   );
 }
