@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100">
+  <style>
+    .ring { fill: #faf6ef; stroke: #3d2455; stroke-width: 4; }
+    .half, .dot-dark { fill: #3d2455; }
+    .dot-light { fill: #faf6ef; }
+    @media (prefers-color-scheme: dark) {
+      .ring { fill: #17101f; stroke: #cdb9f0; }
+      .half, .dot-dark { fill: #cdb9f0; }
+      .dot-light { fill: #17101f; }
+    }
+  </style>
+  <circle class="ring" r="41" />
+  <path class="half" d="M0 -40 A40 40 0 0 1 0 40 A20 20 0 0 0 0 0 A20 20 0 0 1 0 -40 Z" />
+  <circle class="dot-light" cy="-20" r="6" />
+  <circle class="dot-dark" cy="20" r="6" />
+</svg>
