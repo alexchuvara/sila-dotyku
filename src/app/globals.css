@@ -1,24 +1,102 @@
 @import "tailwindcss";
 
-/* Placeholder tokens. The real design system (colours, type, dark mode) is built in Phase 4. */
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+  Design tokens. Components use the semantic names (bg-background, text-muted,
+  bg-primary...) and never raw colours. See docs/02-design-system.md.
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  Theme rules (ADR-0011):
+  - no data-theme attribute  -> follow the system (@media block below)
+  - data-theme="light|dark"  -> explicit choice stored by the theme toggle
+  The two dark blocks must hold identical values; keep them in sync.
+*/
+:root {
+  color-scheme: light;
+  --background: #faf6ef;
+  --surface: #efe6d8;
+  --foreground: #2a1f2d;
+  --muted: #5a4b5e;
+  --border: #e0d3bf;
+  --primary: #3d2455;
+  --primary-foreground: #faf6ef;
+  --link: #6b4e9b;
+  --tint: #e4dcf0;
+  --accent: #8e2b3e;
+  --accent-soft: #f3dde1;
+  --gold: #b88a3e;
+  --ring: #6b4e9b;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --background: #17101f;
+    --surface: #221829;
+    --foreground: #f1e9e1;
+    --muted: #b9aec0;
+    --border: #33253d;
+    --primary: #cdb9f0;
+    --primary-foreground: #1b1226;
+    --link: #bba5e6;
+    --tint: #3a2a55;
+    --accent: #f0a0af;
+    --accent-soft: #3a1b26;
+    --gold: #d9ae5e;
+    --ring: #bba5e6;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #17101f;
+  --surface: #221829;
+  --foreground: #f1e9e1;
+  --muted: #b9aec0;
+  --border: #33253d;
+  --primary: #cdb9f0;
+  --primary-foreground: #1b1226;
+  --link: #bba5e6;
+  --tint: #3a2a55;
+  --accent: #f0a0af;
+  --accent-soft: #3a1b26;
+  --gold: #d9ae5e;
+  --ring: #bba5e6;
+}
+
+/* Expose the tokens to Tailwind as utilities: bg-background, text-muted, ... */
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-link: var(--link);
+  --color-tint: var(--tint);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-gold: var(--gold);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-display: var(--font-cormorant), Georgia, serif;
+}
+
+@layer base {
+  /* Tailwind v4 borders default to currentColor; use our hairline colour. */
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border);
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 }
